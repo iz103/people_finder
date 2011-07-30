@@ -1,0 +1,13 @@
+%h1 People
+%table
+  %tr
+    %th ID
+    %th Name
+    %th Postcode
+    %th Email
+  - @people.each do |person|
+    %tr
+      %td= person.id  
+      %td= person.name
+      %td= person.postcode.number
+      %td= person.email

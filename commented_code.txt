@@ -1,0 +1,19 @@
+# require 'FasterCSV'
+# require 'pp'
+# csv = FasterCSV.read("deliverables230311.csv", :headers => true)
+# pp csv
+# csv.each {|row| Deliverable.create(:number => row['number'], :title => row['title'], :discipline_list => row ['tag1'], :document_type_list => row['tag2'], :tag_list => "#{row['tag3']}, #{row['tag4']}")}
+
+# csv.each {|row| Deliverable.create(:number => row['number'], :title => row['title'], :discipline_list => row ['tag1'], :document_type_list => row['tag2'], :tag_list => row['tag3'])}
+
+
+
+require 'CSV'
+csv = CSV.read('people.csv', :headers => true)
+csv.each {|row| Person.create(:id => row['id'], :name => row['name'], :postcode_id => row['postcode_id'], :email => row['email'])}
+
+require 'CSV'
+csv = CSV.read('postcodes.csv', :headers => true)
+csv.each {|row| Postcode.create(:id => row['id'], :number => row['number'], :suburb => row['suburb'] )}
+
+
