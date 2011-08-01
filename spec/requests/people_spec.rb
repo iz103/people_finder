@@ -13,7 +13,7 @@ describe "People" do
     it "displays people" do
       @person = Factory(:person, :name => "John")
       visit people_path
-      Capybara.save_and_open_page
+      # Capybara.save_and_open_page
       page.should have_content(@person.name)
     end
   

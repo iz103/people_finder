@@ -1,4 +1,3 @@
-%h1 People
 %h3 Filters:
 = form_for @search do |f|
   %ul.formlist
@@ -11,26 +10,34 @@
     %li
       = f.label  :postcode_id_does_not_equal, "Does not Have a Postcode"
       = f.collection_select :postcode_id_does_not_equal, Postcode.all, :id, :number, :include_blank => true
-    / %ul
-    /   - @people.each do |person|
-    /     %li= check_box_tag "postcode"
-    %ul
-      = f.label :postcode_id_in, "Postcodes any of the following:"
-      = f.checks :postcode_id_in, [["2000, Sydney CBD", 1], ["2010, Surry Hills", 2], ["2060, North Sydney", 3], ["2061, Kirribilli", 4], ["2065, Crows Nest", 5]], :class => 'checkboxy' do |check|
-        %li= check.box
-        = check.label
-        
+    %table
+      %tr
+        %th
+        %th
+      %tr
+        %td
+          %ul
+            = f.label :postcode_id_in, "Postcodes in any of the following:"
+            = f.checks :postcode_id_in, Person::POSTCODE_COLLECTION, :class => 'checkboxy' do |check|
+              %li= check.box
+              = check.label
+        %td
+          %ul
+            = f.label :postcode_id_not_in, "Postcodes NOT any of the following:"
+            = f.checks :postcode_id_not_in, [["2000, Sydney CBD", 1], ["2010, Surry Hills", 2], ["2060, North Sydney", 3], ["2061, Kirribilli", 4], ["2065, Crows Nest", 5]], :class => 'checkboxy' do |check|
+              %li= check.box
+              = check.label
     %p= f.submit "Submit"
-%h2 Results    
+%h3 Results    
 %table
   %tr
-    %th ID
-    %th Name
-    %th Postcode
-    %th Email
+    %th.t_header ID
+    %th.t_header Name
+    %th.t_header Postcode
+    %th.t_header Email
   - @people.each do |person|
     %tr
-      %td= person.id  
-      %td= person.name
-      %td= person.postcode.number
-      %td= person.email
+      %td.t_data= person.id 
+      %td.t_data= person.name
+      %td.t_data= person.postcode.number
+      %td.t_data= person.email

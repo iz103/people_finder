@@ -1,5 +1,5 @@
 class PeopleController  < ActionController::Base
-  # layout "application.html.haml"
+  layout "application.html.haml"
   
   def index
     @search = Person.search(params[:search])

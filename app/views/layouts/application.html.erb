@@ -2,11 +2,14 @@
 <html>
 <head>
   <title>PeopleFinder</title>
-  <%= stylesheet_link_tag :all %>
+  <%= stylesheet_link_tag 'application' %>
   <%= javascript_include_tag :defaults %>
   <%= csrf_meta_tag %>
 </head>
 <body>
+  <div id="header">
+    <p>People Finder</p> 
+  </div>
 
 <%= yield %>
 
