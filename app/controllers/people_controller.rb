@@ -2,7 +2,8 @@ class PeopleController  < ActionController::Base
   # layout "application.html.haml"
   
   def index
-    @people = Person.all
+    @search = Person.search(params[:search])
+    @people = @search.all
   end
 
   # def show

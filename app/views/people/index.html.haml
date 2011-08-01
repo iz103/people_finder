@@ -1,4 +1,27 @@
 %h1 People
+%h3 Filters:
+= form_for @search do |f|
+  %ul.formlist
+    %li
+      = f.label  :email_contains, "Uses Email Provider"
+      = f.select("email_contains", Person::EMAILS, {:include_blank => true})
+    %li
+      = f.label  :email_does_not_contain, "Does Not Use Email Provider"
+      = f.select("email_does_not_contain", Person::EMAILS, {:include_blank => true})
+    %li
+      = f.label  :postcode_id_does_not_equal, "Does not Have a Postcode"
+      = f.collection_select :postcode_id_does_not_equal, Postcode.all, :id, :number, :include_blank => true
+    / %ul
+    /   - @people.each do |person|
+    /     %li= check_box_tag "postcode"
+    %ul
+      = f.label :postcode_id_in, "Postcodes any of the following:"
+      = f.checks :postcode_id_in, [["2000, Sydney CBD", 1], ["2010, Surry Hills", 2], ["2060, North Sydney", 3], ["2061, Kirribilli", 4], ["2065, Crows Nest", 5]], :class => 'checkboxy' do |check|
+        %li= check.box
+        = check.label
+        
+    %p= f.submit "Submit"
+%h2 Results    
 %table
   %tr
     %th ID
