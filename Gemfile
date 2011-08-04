@@ -6,10 +6,12 @@ gem 'haml'
 gem "meta_search"
 gem "pg"
 gem "heroku"
+gem "hpricot", "~> 0.8.4"
 
 group :development do
   gem 'sqlite3'
   gem 'sqlite3-ruby', :require => 'sqlite3'
+  gem 'ruby-debug19'
 end
 
 group :development, :spec, :test do
@@ -20,11 +22,8 @@ group :development, :spec, :test do
   gem 'rspec-rails', '>= 2.0.0.beta.10'
   gem 'ruby-debug19', :require => 'ruby-debug'
   gem "ruby_parser", "~> 2.0.6"
-  gem "hpricot", "~> 0.8.4"
-  gem 'cucumber'
   gem 'cucumber-rails'
   gem 'webrat'
-  gem 'ruby-debug19'
   gem "cucumber"
   gem "pickle"
 end
