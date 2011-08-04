@@ -25,4 +25,6 @@ group :development, :spec, :test do
   gem 'cucumber-rails'
   gem 'webrat'
   gem 'ruby-debug19'
+  gem "cucumber"
+  gem "pickle"
 end

@@ -1,20 +1,20 @@
-require 'spec_helper'
-
-describe "People" do
-  describe "GET /people" do
-    it "works! (now write some real specs)" do
-      # Run the generator again with the --webrat flag if you want to use webrat methods/matchers
-      get people_path
-      response.status.should be(200)
-    end
-  end
-  
-    
-    it "displays people" do
-      @person = Factory(:person, :name => "John")
-      visit people_path
-      # Capybara.save_and_open_page
-      page.should have_content(@person.name)
-    end
-  
-end
+# require 'spec_helper'
+# 
+# describe "People" do
+#   describe "GET /people" do
+#     it "works! (now write some real specs)" do
+#       # Run the generator again with the --webrat flag if you want to use webrat methods/matchers
+#       get people_path
+#       response.status.should be(200)
+#     end
+#   end
+#   
+#     
+#     it "displays people" do
+#       @person = Factory(:person, :name => "John")
+#       visit people_path
+#       # Capybara.save_and_open_page
+#       page.should have_content(@person.name)
+#     end
+#   
+# end
